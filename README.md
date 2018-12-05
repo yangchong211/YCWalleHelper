@@ -78,6 +78,7 @@
 ![image](https://upload-images.jianshu.io/upload_images/4432347-3a913bde5954e050.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
+
 #### 3.2 配置keystore信息需要注意的问题
 - 主要是注意路径是全路径
     ```
