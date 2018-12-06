@@ -8,7 +8,9 @@
 
 
 ### 0.首先看看我录制的案例演示
-![image]()
+- 如下所示，这段python代码很简单，工具十分强大，一键多渠道打包工具。
+    - ![image](https://github.com/yangchong211/YCWalleHelper/blob/master/walle.gif)
+
 
 ### 1.本库优势亮点
 - 通过该自动化脚本，自需要run一下或者命令行运行脚本即可实现美团瓦力多渠道打包，打包速度很快
