@@ -22,6 +22,8 @@
 
 
 ### 3.美团多渠道打包
+- 基于v2
+	- Walle（瓦力）：Android Signature V2 Scheme签名下的新一代渠道包打包神器
 - 整个APK（ZIP文件格式）会被分为以下四个区块：
 	- Contents of ZIP entries（from offset 0 until the start of APK Signing Block）
 	- APK Signing Block
@@ -29,7 +31,7 @@
 	- ZIP End of Central Directory
 - 原理：
 	- 原理很简单，就是将渠道信息存放在APK文件的注释字段中。美团的打包方式非常快速，打渠道包几乎就只是进行一次copy apk文件。
- 
+ 	- 瓦力通过在Apk中的APK Signature Block区块添加自定义的渠道信息来生成渠道包，从而提高了渠道包生成效率
 
 
 

@@ -29,7 +29,7 @@
 		- 对于已加固：将你加固好的apk文件，已经需要多渠道配置信息的channel放到指定的apk文件中
     - 初步建议，如果你想自定义存放文件的路径，可以先熟悉一下python的代码再做修改，也没有什么难度
 - 第二步：配置Config.py文件中的属性
-    - 配置keystore信息，这个地方引用你的keystore信息
+    - 配置keystore信息，这个地方引用你的keystore信息，对于已经加固可以直接过
     ```
     # keystore信息，这个是针对未加固的，如果已经加固则不需要配置
     # Windows 下路径分割线请注意使用\\转义
@@ -42,7 +42,7 @@
     ```
     # 加固后的源文件名（未重签名）
     # 必须要配置
-    protectedSourceApkName = "app_release_aligned_signed.apk"
+    protectedSourceApkName = "app_release.apk"
     
     # 下面这些可以不用配置，代码中会有默认的值
     # 加固后的源文件所在文件夹路径(...path),注意结尾不要带分隔符，默认在此文件夹根目录
@@ -108,7 +108,7 @@
 
 
 #### 3.4 关于部分疑问问题
-- 关于Config.py中的sdkBuildToolPath，建议和你使用studio的版本保持一致。别忽略这种小的问题！
+- 关于Config.py中的sdkBuildToolPath，建议和你使用studio的版本保持一致，需要用到zipalign。别忽略这种小的问题！
 - 注意如果要配置定义路径等属性，由于编码格式为UTF-8，所以不要带异常字符
 - 多渠道打包时，如果要修改多渠道信息，直接修改channel，这个文件就不要修改成其他的名称呢！
 
@@ -135,6 +135,8 @@
 - 关于命令行参考
 	- [APK命令行实现V1、V2签名及验证](https://www.jianshu.com/p/e00f9bb12340)
 	- [美团瓦力walle-cli](https://github.com/Meituan-Dianping/walle/blob/master/walle-cli/README.md)
+	- [walle-cli](https://github.com/itgowo/walle-cli)
+	- [瓦力多渠道打包原理](https://tech.meituan.com/2017/01/13/android-apk-v2-signature-scheme.html)
 
 
 ### 6.其他介绍
