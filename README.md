@@ -4,7 +4,8 @@
 - 2.使用介绍
 - 3.注意要点
 - 4.效果展示
-- 5.其他介绍
+- 5.大概步骤
+- 6.其他介绍
 
 
 ### 0.首先看看我录制的案例演示
@@ -23,12 +24,14 @@
 
 ### 2.使用介绍
 - 第一步：准备基础的文件
-    - 将你加固好的apk文件，keystore，已经需要多渠道配置信息的channel放到指定的apk文件中
+    - 准备apk文件
+		- 对于未签名：将你未加固的apk文件，keystore，已经需要多渠道配置信息的channel放到指定的apk文件中
+		- 对于已加固：将你加固好的apk文件，已经需要多渠道配置信息的channel放到指定的apk文件中
     - 初步建议，如果你想自定义存放文件的路径，可以先熟悉一下python的代码再做修改，也没有什么难度
 - 第二步：配置Config.py文件中的属性
     - 配置keystore信息，这个地方引用你的keystore信息
     ```
-    # keystore信息
+    # keystore信息，这个是针对未加固的，如果已经加固则不需要配置
     # Windows 下路径分割线请注意使用\\转义
     keystorePath = "D:\\GitHub\\YCWalleHelper\\venv\\Include\\apk\\ycPlayer.jks"
     keyAlias = "yc"
@@ -53,13 +56,17 @@
     extraChannelFilePath = ""
     
     # Android SDK buidtools path , please use above 25.0+
-    # 必须配置
+    # 必须配置，需要用到zipalign
     sdkBuildToolPath = "D:\\Program File\\AndroidSdk\\build-tools\\28.0.3"
     ```
 - 第三步：直接运行
     - 第一种方式是通过PyCharm工具运行，这个直接run就可以呢。程序员建议使用这种！
     - 第二种方式是通过命令行运行，就可以实现自动化打包
     ```
+	//已经加固：运行这个使用到校验签名，以及瓦力多渠道输出
+	python mian.py
+	
+	//未签名：运行这个使用到命令行签名，校验签名，以及瓦力多渠道输出
     python MainWalle.py
     ```
 - 第四步：修改多渠道配置信息
@@ -111,7 +118,26 @@
     - ![image](https://upload-images.jianshu.io/upload_images/4432347-24c01dbbf68d1166.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 
-### 5.其他介绍
+### 5.大概步骤
+- python脚步指令步骤：
+	- 5.1 首先获取配置信息，配置信息里主要包括apk加固包，channel渠道，keyStroke文件
+	- 5.2 获取v2检验签名，美团瓦力walle路径
+	- 5.3 检查v2签名是否正确
+	- 5.4 利用美团walle写入多渠道，参考美团瓦力命令行文档
+- APK的生成步骤：
+	- 1、打包资源文件，生成 R.java 文件
+	- 2、处理 aidl 文件，生成相应 java 文件
+	- 3、编译工程源代码，生成相应 class 文件
+	- 4、转换所有 class 文件，生成 classes.dex 文件
+	- 5、打包生成 apk
+	- 6、对 apk 文件进行签名
+	- 7、对签名的 apk 进行 zipalign 对其操作
+- 关于命令行参考
+	- [APK命令行实现V1、V2签名及验证](https://www.jianshu.com/p/e00f9bb12340)
+	- [美团瓦力walle-cli](https://github.com/Meituan-Dianping/walle/blob/master/walle-cli/README.md)
+
+
+### 6.其他介绍
 #### 关于其他内容介绍
 ![image](https://upload-images.jianshu.io/upload_images/4432347-7100c8e5a455c3ee.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
@@ -138,6 +164,7 @@
 - https://www.jianshu.com/p/20a62d1eba3f
 - https://github.com/Jay-Goo/ProtectedApkResignerForWalle
 - https://blog.csdn.net/u013692888/article/details/77933548
+- https://blog.csdn.net/WHB20081815/article/details/89766471
 
 
 

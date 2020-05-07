@@ -9,7 +9,7 @@
 
 # keystore信息
 # Windows 下路径分割线请注意使用\\转义
-keystorePath = "D:\\GitHub\\YCWalleHelper\\venv\\Include\\apk\\ycPlayer.jks"
+keystorePath = "/Users/yangchong/yc/GitHub/YCWalleHelper/venv/Include/apk"
 keyAlias = "yc"
 keystorePassword = "19930211"
 keyPassword = "19930211"
@@ -29,4 +29,4 @@ channelFilePath = ""
 extraChannelFilePath = ""
 # Android SDK buidtools path , please use above 25.0+
 # sdkBuildToolPath = "/Users/mac/Library/Android/sdk/build-tools/26.0.2"
-sdkBuildToolPath = "D:\\Program File\\AndroidSdk\\build-tools\\28.0.3"
+sdkBuildToolPath = "/Users/yangchong/Library/Android/sdk/build-tools28.0.3"
